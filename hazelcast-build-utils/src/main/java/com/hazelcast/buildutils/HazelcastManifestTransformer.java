@@ -373,7 +373,7 @@ public class HazelcastManifestTransformer extends ManifestResourceTransformer {
         private boolean findResolutionConstraint(String[] tokens) {
             for (String token : tokens) {
                 if (token.startsWith(RESOLUTION_PREFIX)) {
-                    return token.toLowerCase(Locale.ROOT).equals("resolution:=optional");
+                    return "resolution:=optional".equals(token.toLowerCase(Locale.ROOT));
                 }
             }
             return false;

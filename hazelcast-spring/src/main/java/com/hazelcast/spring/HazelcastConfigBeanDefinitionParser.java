@@ -2252,7 +2252,7 @@ public class HazelcastConfigBeanDefinitionParser extends AbstractHazelcastBeanDe
             fillValues(childNode, wanReplicationRefBuilder);
             for (Node node : childElements(childNode)) {
                 String nodeName = cleanNodeName(node);
-                if (nodeName.equals("filters")) {
+                if ("filters".equals(nodeName)) {
                     List<String> filters = new ManagedList<>();
                     handleFilters(node, filters);
                     wanReplicationRefBuilder.addPropertyValue("filters", filters);

@@ -66,14 +66,14 @@ public class GetDdlFunction extends TriExpression<String> {
 
         IMap<?, ?> sqlCatalog = context.getNodeEngine().getHazelcastInstance().getMap(SQL_CATALOG_MAP_NAME);
         final String ddl;
-        if (!(namespace.equals(RELATION_NAMESPACE) || namespace.equals(DATACONNECTION_NAMESPACE))) {
+        if (!(RELATION_NAMESPACE.equals(namespace) || DATACONNECTION_NAMESPACE.equals(namespace))) {
             throw QueryException.error(
                     "Namespace '" + namespace + "' is not supported. Only '" + RELATION_NAMESPACE + "' and '"
                             + DATACONNECTION_NAMESPACE + "' namespaces are supported.");
         }
 
         String keyName = objectName;
-        if (namespace.equals(DATACONNECTION_NAMESPACE)) {
+        if (DATACONNECTION_NAMESPACE.equals(namespace)) {
             keyName = QueryUtils.wrapDataConnectionKey(objectName);
         }
 

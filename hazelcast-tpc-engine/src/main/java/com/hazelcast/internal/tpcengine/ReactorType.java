@@ -24,9 +24,9 @@ public enum ReactorType {
     NIO, IOURING;
 
     public static ReactorType fromString(String type) {
-        if (type.equalsIgnoreCase("io_uring") || type.equalsIgnoreCase("iouring")) {
+        if ("io_uring".equalsIgnoreCase(type) || "iouring".equalsIgnoreCase(type)) {
             return IOURING;
-        } else if (type.equalsIgnoreCase("nio")) {
+        } else if ("nio".equalsIgnoreCase(type)) {
             return NIO;
         } else {
             throw new IllegalArgumentException("Unrecognized reactor type [" + type + ']');

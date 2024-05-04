@@ -805,7 +805,7 @@ public abstract class Formatter {
             @Override
             public void acceptGroup(String group, Matcher m) {
                 String g = group.toUpperCase();
-                if (g.equals("FM")) {
+                if ("FM".equals(g)) {
                     fillMode = true;
                 } else if (g.startsWith("V")) {
                     shift += group.length() - 1;
@@ -907,7 +907,7 @@ public abstract class Formatter {
             String value = input.toString();
             boolean negative = value.startsWith("-");
 
-            if (value.equals("NaN") || value.endsWith("Infinity")) {
+            if ("NaN".equals(value) || value.endsWith("Infinity")) {
                 // Value is not formattable; pattern is filled with #'s.
                 integerMask.format(s, negative, null, null, 0, true, symbols);
                 fractionMask.format(s, negative, null, null, 0, true, symbols);
