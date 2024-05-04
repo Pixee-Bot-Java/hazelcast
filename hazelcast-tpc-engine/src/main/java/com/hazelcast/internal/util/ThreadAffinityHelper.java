@@ -107,7 +107,7 @@ public final class ThreadAffinityHelper {
         InputStream src = null;
         try {
             src = CloseUtil.class.getClassLoader().getResourceAsStream("lib/linux-x86_64/libaffinity_helper.so");
-            File dest = File.createTempFile("hazelcast-libaffinity-helper-", ".so");
+            File dest = Files.createTempFile("hazelcast-libaffinity-helper-", ".so").toFile();
             Files.copy(src, dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return dest.getAbsolutePath();
 

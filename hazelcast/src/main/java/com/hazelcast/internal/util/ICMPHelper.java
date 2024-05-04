@@ -47,7 +47,7 @@ public final class ICMPHelper {
 
     private static String extractBundledLib() {
         try (InputStream src = getFileFromResourcesAsStream(getBundledLibraryPath())) {
-            File dest = File.createTempFile("hazelcast-libicmp-helper-", ".so");
+            File dest = Files.createTempFile("hazelcast-libicmp-helper-", ".so").toFile();
 
             Files.copy(src, dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
