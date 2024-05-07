@@ -163,7 +163,7 @@ public final class FieldUtils {
 
         // Skip getFactoryId() and getClassId() from Portable and IdentifiedDataSerializable.
         String methodName = method.getName();
-        if (methodName.equals(METHOD_GET_FACTORY_ID) || methodName.equals(METHOD_GET_CLASS_ID)) {
+        if (METHOD_GET_FACTORY_ID.equals(methodName) || METHOD_GET_CLASS_ID.equals(methodName)) {
             if (IdentifiedDataSerializable.class.isAssignableFrom(clazz) || Portable.class.isAssignableFrom(clazz)) {
                 return true;
             }

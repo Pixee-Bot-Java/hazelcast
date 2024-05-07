@@ -557,7 +557,7 @@ public class JdbcSqlConnector implements SqlConnector {
     }
 
     private static boolean isMySQL(DatabaseMetaData databaseMetaData) throws SQLException {
-        return getProductName(databaseMetaData).equals("MYSQL");
+        return "MYSQL".equals(getProductName(databaseMetaData));
     }
 
     private static String getProductName(DatabaseMetaData databaseMetaData) throws SQLException {
